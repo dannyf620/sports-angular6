@@ -1,0 +1,75 @@
+npm install font-awesome
+$fa-font-path : '../node_modules/font-awesome/fonts';
+@import '../node_modules/font-awesome/scss/font-awesome';
+
+_______________________
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
+
+
+
+@Injectable({
+  providedIn: 'root',
+})
+export class Api {
+  url: string = 'https://example.com/api/v1';
+
+  constructor(public http: HttpClient) {
+  }
+
+  get(endpoint: string, params?: any, reqOpts?: any) {
+    if (!reqOpts) {
+      reqOpts = {
+        params: new HttpParams()
+      };
+    }
+
+    // Support easy query params for GET requests
+    if (params) {
+      reqOpts.params = new HttpParams();
+      for (let k in params) {
+        reqOpts.params = reqOpts.params.set(k, params[k]);
+      }
+    }
+
+    return this.http.get(this.url + '/' + endpoint, reqOpts);
+  }
+
+  post(endpoint: string, body: any, reqOpts?: any) {
+    return this.http.post(this.url + '/' + endpoint, body, reqOpts);
+  }
+
+  put(endpoint: string, body: any, reqOpts?: any) {
+    return this.http.put(this.url + '/' + endpoint, body, reqOpts);
+  }
+
+  delete(endpoint: string, reqOpts?: any) {
+    return this.http.delete(this.url + '/' + endpoint, reqOpts);
+  }
+
+  patch(endpoint: string, body: any, reqOpts?: any) {
+    return this.http.patch(this.url + '/' + endpoint, body, reqOpts);
+  }
+}
+_______________________
+
+ng generate component page1
+ng generate component page2
+ng generate component page3
+
+ng generate module app-routing
+
+creamos un nuevo archovo routes.ts en la carpeta
+import { Routes } from '@angular/router';
+
+
+
+export const routes: Routes = [
+  { path: 'pagina1',  component: Page1Component },
+  { path: '', redirectTo: '/menu', pathMatch: 'full' }
+];
+
+
+la nueva etiquieta para rutas
+<router-outlet></router-outlet>
