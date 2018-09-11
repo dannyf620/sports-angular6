@@ -1,4 +1,5 @@
 import { ApiService } from './api.service';
+import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -31,8 +32,9 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
     
+    MaterialModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
