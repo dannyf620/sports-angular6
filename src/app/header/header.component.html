@@ -1,19 +1,30 @@
-<nav color="primary">
+
+
+<mat-toolbar color="primary">
   <span><img src="/assets/images/logo.png" height=30 width=41></span>
-  <a><span class="fa fa-home fa-lg"></span> pagina2</a>
-  <a><span class="fa fa-info fa-lg"></span> pagina2</a>
-  <a><span class="fa fa-list fa-lg"></span> pagina3</a>
-  <a><span class="fa fa-address-card fa-lg"></span> otro</a>
-</nav>
+  <a mat-button routerLink="/pagina1" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> pagina1|</a>
+  <a mat-button routerLink="/pagina2" routerLinkActive="active"><span class="fa fa-info fa-lg"></span> pagina2</a>  
+  <span class="flex-spacer"></span>
+  <a *ngIf="!username" mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> ingresar</a>
+  <a *ngIf="username">{{username}}</a>
+  <a *ngIf="username" mat-button (click)="logOut()"><span class="fa fa-sign-out fa-lg"></span> Salir</a>  
+</mat-toolbar>
 
-<div class="container jumbotron">
+<div class="container jumbotron"
+    fxLayout="row"
+    fxLayout.sm="column" 
+    fxLayout.xs="column" 
+    fxLayoutAlign.xs="start center"
+    fxLayoutAlign.sm="start center" 
+    fxLayoutAlign.gt-sm="center center" 
+    fxLayoutGap="10px">
 
-  <div >
-    <h1></h1>
-    <p></p>
+  <div fxFlex fxFlex.gt-sm="50%">
+    <h1>RCN Radio</h1>
+    <p>una descripcon </p>
   </div>
-  <div>
+  <div fxFlex fxFlex.gt-sm="20%">
     <img src="/assets/images/logo.png" alt="Logo">
   </div>
-  <div ></div>
+  <div fxFlex></div>
 </div>
