@@ -15,6 +15,8 @@ import { Page2Component } from './page2/page2.component';
 import { Page3Component } from './page3/page3.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { LoginComponent } from './login/login.component';
     Page1Component,
     Page2Component,
     Page3Component,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     HttpClientModule,
     
-    MaterialModule
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
