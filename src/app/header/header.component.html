@@ -5,7 +5,7 @@
   <a mat-button routerLink="/pagina1" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> pagina1|</a>
   <a mat-button routerLink="/pagina2" routerLinkActive="active"><span class="fa fa-info fa-lg"></span> pagina2</a>  
   <span class="flex-spacer"></span>
-  <a *ngIf="!username" mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> ingresar</a>
+  <a *ngIf="!username" mat-button  (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> ingresar</a>
   <a *ngIf="username">{{username}}</a>
   <a *ngIf="username" mat-button (click)="logOut()"><span class="fa fa-sign-out fa-lg"></span> Salir</a>  
 </mat-toolbar>
