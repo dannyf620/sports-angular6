@@ -84,15 +84,15 @@ export class MenuComponent implements OnInit {
       fxLayoutGap="7px">
       <div fxShow.lt-md="true" fxShow.gt-sm="false">
         <a mat-button routerLink="/pagina1" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> pagina1</a>
-        <a mat-button routerLink="/pagina2" routerLinkActive="active"><span class="fa fa-shopping-cart  fa-lg"></span> pagina2</a>      
+        <a mat-button routerLink="/pagina2" routerLinkActive="active"><span class="fa fa-shopping-cart  fa-lg"></span> pagina2</a>
       </div>
       <div>
-        <span class="lead">Productos</span>
+        <span class="lead"> Menu </span>
 
       </div>
       <div>
 
-        <span>Baratón</span>
+        <span> RCN Radio </span>
 
       </div>
     </div>
@@ -105,15 +105,15 @@ export class MenuComponent implements OnInit {
               {{a}}
             </mat-panel-title>
             <mat-panel-description>
-              <button mat-button color="basic" (click)="goCategori(category,0)"><mat-icon>shopping_cart</mat-icon></button>
+              <button mat-button color="basic"><mat-icon>shopping_cart</mat-icon></button>
             </mat-panel-description>
           </mat-expansion-panel-header>
 
 
 
 
-          <mat-nav-list  class="ml-0" dense>
-            <span> - {{a}} - interno</span>          
+          <mat-nav-list class="ml-0" dense>
+            <span> - {{a}} - interno</span>
 
           </mat-nav-list>
         </mat-expansion-panel>
@@ -128,7 +128,11 @@ export class MenuComponent implements OnInit {
   </mat-sidenav-content>
 </mat-sidenav-container>
 ```
-
+```css
+mat-sidenav {
+  width: 250px;;
+}
+```
 # necesitamos un boton en el header!
 
 ```html
