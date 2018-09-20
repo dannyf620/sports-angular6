@@ -1,3 +1,75 @@
+# Crear componente menu
+
+```ng g c menu```
+
+```ng g c notFound```
+
+
+
+
+# Modificar routing
+
+
+```javascript
+export const routes: Routes = [
+
+  {
+    path: '', component: MenuComponent, children: [
+      { path: 'pagina1',  component: Page1Component },
+      { path: 'pagina2',  component: Page2Component },
+      { path: '', redirectTo: '/pagina1', pathMatch: 'full' },      
+    ]
+  },
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' }
+]
+``` 
+## Actualizar app.component.html
+
+```html
+<router-outlet></router-outlet>
+```
+
+## configuracion menu
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { Subscription } from 'rxjs';
+@Component({
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss']
+})
+export class MenuComponent implements OnInit {
+  opened = true;
+  over = 'side';
+  expandHeight = '42px';
+  collapseHeight = '42px';
+  displayMode = 'flat';
+  watcher: Subscription;
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    media: ObservableMedia) { 
+      this.watcher = media.subscribe((change: MediaChange) => {
+        if (change.mqAlias === 'sm' || change.mqAlias === 'xs') {
+          this.opened = false;
+          this.over = 'over';
+        } else {
+          this.opened = true;
+          this.over = 'side';
+        }
+      });
+    }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+```html
 <mat-sidenav-container class="container">
   <mat-sidenav #sidenav [(mode)]="over" [(opened)]="opened" class="bottom-to-top">
     <div class="my-2" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
@@ -51,7 +123,20 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <app-header (abrirEmit)="toggleMenu()"></app-header>
+    <app-header></app-header>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+```
+```css
+mat-sidenav {
+  width: 250px;;
+}
+```
+# necesitamos un boton en el header!
+
+```html
+<button mat-icon-button (click)="openMenu()" fxShow.sm="true" fxShow.gt-sm="false">
+  <mat-icon>menu</mat-icon>
+</button>
+```
