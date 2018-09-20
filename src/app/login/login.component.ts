@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log("User: ", this.user);
     setTimeout(() => {
-      this.dialogRef.close(this.user);      
+      this.dialogRef.close(true);      
       this.errMess = "Usuario on existe";
     }, 5000);
   }
