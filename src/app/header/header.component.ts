@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from './../login/login.component';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,6 +10,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent implements OnInit {
   username: string = undefined;
+  @Output() abrirEmit = new EventEmitter();
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -25,5 +27,7 @@ export class HeaderComponent implements OnInit {
     this.username = undefined;
     // apiService.post('');
   }
-
+  openMenu(){
+    this.abrirEmit.emit('');
+  }
 }
