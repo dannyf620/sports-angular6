@@ -1,1 +1,20 @@
-pagina 1 funciona
+<div>
+  {{ lorem | truncate}}
+</div>
+
+<label for="nombre">Buscar</label>
+<input type="text" placeholder="Nombre" [(ngModel)]='busqueda'>
+<br>
+<h1>{{busqueda}}</h1>
+<div>
+  <div  class="persona-content" *ngFor="let persona of personas | filter:'nombre':busqueda">
+    <p>
+      <strong  >Nombre: </strong>
+      <samp>{{persona.nombre}}</samp>
+    </p>
+    <p>
+      <strong>Edad: </strong>
+      <samp>{{persona.edad}}</samp>
+    </p>
+  </div>
+</div>

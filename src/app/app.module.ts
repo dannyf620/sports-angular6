@@ -16,6 +16,8 @@ import { Page3Component } from './page3/page3.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TruncatePipe } from './pipes/truncate.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     Page2Component,
     Page3Component,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TruncatePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

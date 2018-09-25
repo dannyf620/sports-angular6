@@ -30,7 +30,7 @@
         <mat-expansion-panel *ngFor="let a of ['uno','dos','tres','cuatro']" class="no-shadow">
           <mat-expansion-panel-header class="panel1" fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
             <mat-panel-title>
-              {{a}}
+              {{a|truncate:1:''}}
             </mat-panel-title>
             <mat-panel-description>
               <button mat-button color="basic"><mat-icon>shopping_cart</mat-icon></button>
